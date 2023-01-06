@@ -20,7 +20,7 @@
         public bool IsAlive { get => _isAlive; private set => _isAlive = value; }
         public AnimalState Fed { get => _fed; protected set => _fed = value; }
 
-        public event Action OnDie;
+        //public event Action OnDie;
 
         public Animal(string name)
         {
@@ -38,7 +38,7 @@
         {
             IsAlive = false;
 
-            OnDie?.Invoke();
+            //OnDie?.Invoke();
             // Equivalent
             //if(OnDie != null)
             //{

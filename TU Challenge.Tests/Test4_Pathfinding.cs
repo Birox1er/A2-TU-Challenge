@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace TU_Challenge.Tests
 {
@@ -14,7 +15,7 @@ namespace TU_Challenge.Tests
     /// Ces TU ne représentent que le premier algo : Breadth First Search
     /// Pour rendre les tests visible, tu dois passer le "#if false" à "#if true" ligne 17
     /// </summary>
-#if false
+#if true
     public class Test4_Pathfinding
     {
 #region
@@ -109,8 +110,8 @@ namespace TU_Challenge.Tests
         public void GetNeighboors(int x, int y, int countExpected)
         {
             Pathfinding p = new Pathfinding(_map1);
-            var result = p.GetNeighboors(new Vector2(x, y));
-            Assert.IsTrue(result.Count == countExpected);
+            List<Vector2> result = p.GetNeighboors(new Vector2(x, y));
+            Assert.IsTrue(result.Count() == countExpected);
         }
 
         [Test]
@@ -130,9 +131,9 @@ namespace TU_Challenge.Tests
             };
 
             Pathfinding p = new Pathfinding(_map1);
-            var result = p.GetNeighboors(new Vector2(x, y), exclude);
+            List<Vector2> result = p.GetNeighboors(new Vector2(x, y), exclude);
 
-            Assert.IsTrue(result.Count == countExpected);
+            Assert.IsTrue(result.Count() == countExpected);
         }
 
         [Test]
@@ -154,7 +155,7 @@ namespace TU_Challenge.Tests
             }
 
             Pathfinding p = new Pathfinding(map);
-            var path = p.BreadthFirstSearch(start, destination);
+            Path path = p.BreadthFirstSearch(start, destination);
 
             bool isComplete = path.IsComplete(start, destination);
             Assert.IsTrue(isComplete == pathFound);

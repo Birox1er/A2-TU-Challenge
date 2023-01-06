@@ -1,10 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
+
 namespace TU_Challenge.Tests
 {
     /// <summary>
     /// Exercice 2, cette fois-ci on fait un peu d'algorythme jouant avec des boucles
     /// Pour rendre les tests visible, tu dois passer le "#if false" à "#if true" ligne 7
     /// </summary>
-#if false
+
     public class Test2_Strings
     {
         [Test]
@@ -73,10 +80,10 @@ namespace TU_Challenge.Tests
 
         [Test]
         [TestCase("IIM", "MII")]
-        [TestCase("HelloWorld", "dlrorWolleH")]
+        [TestCase("HelloWorld", "dlroWolleH")]
         public void Reverse(string a, string expected)
         {
-            string result = MyStringImplementation.Voyelles(a);
+            string result = MyStringImplementation.Reverse(a);
             Assert.That(result, Is.EqualTo(expected));
         }
 
@@ -110,5 +117,5 @@ namespace TU_Challenge.Tests
         }
 
     }
-#endif
+
 }
